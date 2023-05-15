@@ -1,0 +1,39 @@
+/*********************/                 /*********************/
+/**GLOBAL **/                           /*********************/
+/*********************/                 /*********************/
+
+                        /************/
+
+
+                        body{
+                            font-family:"Comic Sans MS";
+                            background-color: royalblue;
+                        }
+                        
+                        
+                        
+                        /****************/
+                        /* /HEADER NEF/ */
+                        /****************/
+                        
+                        header { 
+                            background-color :royalblue ;/* add mau gi cung duoc 'highlight my sebwite' */ 
+                        }
+                        
+                        header h1 { 
+                            color: peachpuff;
+                            padding:50px;
+                        }
+                        
+                        
+                        /****************/
+                        /* /IMAGES/ */
+                        /****************/
+                        
+                        img {
+                            max-width: 30%;
+                            max-height: 250%;
+                           }
+                           
+                        
+                        
