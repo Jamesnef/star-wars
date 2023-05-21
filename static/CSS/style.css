@@ -7,7 +7,7 @@
 
                         body{
                             font-family:"Century Gothic";
-                            background-color: royalblue;
+                           
                             background-image: url("/static/images/star war background.jpg");
                         }
                         
@@ -18,7 +18,8 @@
                         /****************/
                         
                         header { 
-                            background-color :royalblue ;/* add mau gi cung duoc 'highlight my sebwite' */ 
+                         /*   background-color ;/* add mau gi cung duoc 'highlight my sebwite' */
+                         font-family:"Franklin Gothic Medium"   
                         }
                         
                         header h1 { 
@@ -26,6 +27,11 @@
                             padding:50px;
 
                         text-align: center 
+                        }
+
+                        nav a {
+                            color: yellow;
+                            font-weight: bold;
                         }
                         
                         
