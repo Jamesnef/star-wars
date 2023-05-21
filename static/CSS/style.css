@@ -8,6 +8,7 @@
                         body{
                             font-family:"Century Gothic";
                             background-color: royalblue;
+                            background-image: url("/static/images/star war background.jpg");
                         }
                         
                         
@@ -23,6 +24,8 @@
                         header h1 { 
                             color: peachpuff;
                             padding:50px;
+
+                        text-align: center 
                         }
                         
                         
