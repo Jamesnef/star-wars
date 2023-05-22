@@ -29,10 +29,18 @@
                         text-align: center 
                         }
 
+                        #navbar {
+                            text-align: center;
+                        }
+                        
                         nav a {
                             color: yellow;
                             font-weight: bold;
+                            font-size: x-large;
+                            
                         }
+
+                        
                         
                         
                         /****************/
