@@ -1,0 +1,22 @@
+{% extends"layout.html" %}
+{% block content %} 
+
+
+{{base[1]}}
+<br>
+{{pizza[1]}}
+<img src= "{{character[3]}}"/>
+
+
+{%for item in topping %}
+
+<p>
+
+    {{item[0]}} 
+
+</p>
+
+{% endfor %}
+{% endblock %} 
+
+
