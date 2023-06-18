@@ -28,7 +28,7 @@ def all_pizzas():
 
 @app.route("/Character/<int:id>")
 def pizza(id):
-    conn=sqlite3.connect("pizza1.db")
+    conn=sqlite3.connect("starwar.db")
     cur=conn.cursor()
     cur.execute("SELECT * FROM  WHERE id=?",(id,))
     pizza = cur.fetchone()
