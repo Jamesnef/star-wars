@@ -27,20 +27,20 @@ def all_pizzas():
 
 
 @app.route("/Character/<int:id>")
-def pizza(id):
+def Character(id):
     conn=sqlite3.connect("starwar.db")
     cur=conn.cursor()
-    cur.execute("SELECT * FROM  WHERE id=?",(id,))
-    pizza = cur.fetchone()
-    print(pizza)
-    cur.execute("SELECT * FROM BASE WHERE id=?",(id,))
-    base = cur.fetchone()
-    print(base)
-    cur.execute("SELECT name FROM Topping WHERE id in( SELECT tid FROM PizzaTopping WHERE pid=?)",(id,))
-    topping = cur.fetchall()
-    print(topping)
+    cur.execute("SELECT * FROM Character WHERE id=?",(id,))
+    Character = cur.fetchone()
+    print(Character)
+    cur.execute("SELECT * FROM Abilities WHERE id=?",(id,))
+    Abilities = cur.fetchone()
+    print(Abilities)
+    cur.execute("SELECT name FROM The_side WHERE id in( SELECT aid FROM Character abilities WHERE cid=?)",(id,))
+    The_side = cur.fetchall()
+    print(The_side)
     
-    return render_template("pizza.html",pizza=pizza, base=base, topping=topping )
+    return render_template("character.html",Character=Character, Abilities=Abilities, The_side=The_side )
 
 
 
