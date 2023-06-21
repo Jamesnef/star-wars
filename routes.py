@@ -17,8 +17,8 @@ def about():
     return render_template("about.html")
 
 @app.route("/all_character")
-def all_pizzas():
-    conn=sqlite3.connect("starwar")
+def all_character():
+    conn=sqlite3.connect("starwar.db")
     cur = conn.cursor()
     cur.execute("SELECT * FROM Character")
     results = cur.fetchall()
