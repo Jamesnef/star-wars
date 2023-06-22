@@ -40,7 +40,7 @@ def Character(id):
     The_side = cur.fetchall()
     print(The_side)
     
-    return render_template("character.html",Character=Character, Abilities=Abilities, The_side=The_side )
+    return render_template("Character.html",Character=Character, Abilities=Abilities, The_side=The_side )
 
 
 
