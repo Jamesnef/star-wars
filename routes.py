@@ -36,7 +36,7 @@ def Character(id):
     cur.execute("SELECT * FROM Abilities WHERE id=?",(id,))
     Abilities = cur.fetchone()
     print(Abilities)
-    cur.execute("SELECT name FROM The_side WHERE id in( SELECT aid FROM Character abilities WHERE cid=?)",(id,))
+    cur.execute("SELECT name FROM The_side WHERE id in( SELECT aid FROM Character_abilities WHERE cid=?)",(id,))
     The_side = cur.fetchall()
     print(The_side)
     
