@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, request
 import sqlite3
 
 app = Flask(__name__)
@@ -10,7 +10,24 @@ def hello():
 
 @app.route("/contact")
 def contact():
-    return render_template("contact.html")
+    conn = sqlite3.connect('starwar')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM entries")
+    entries = cursor.fetchall()
+    conn.close()
+    return render_template('contact.html', entries)
+
+@app.route('/add_entry', methods=['POST'])
+def add_entry(): #def add entry = save entry
+    if request.method == 'POST':  #check if method = post or ?
+        content = request.form['content']  #content = databse / rqf = data submit in form from box
+        conn = sqlite3.connect('starwar.db')  # sqlite connect database
+        cursor = conn.cursor()  #worker ahhhhhhhhh *connection with db*
+        cursor.execute("INSERT INTO entries (content) VALUES (?)", (content,)) 
+        conn.commit()  #save permit trong db / ko có dòng này là save temp
+        conn.close()  #close connection
+    return redirect('/')  
+    
 
 @app.route("/about")
 def about():
