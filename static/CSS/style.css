@@ -11,12 +11,53 @@
 
                         body{
                             font-family:"Century Gothic";
-                           
-                            background-image: url("/static/images/star war background.jpg");
+                           color: yellowgreen;
+                            background-image: url("/static/images/colourbackgroundstarwar.jpg");
+                            background-size: cover;
+                            margin: 0;
+                            padding: 0;
+                            display: flex;
+                            flex-direction: column;
+                            min-height: 100vh;
+
+                        }
+
+                        .content {
+                            max-width: 800px; 
+                            margin: 0 auto; /* Center the content horizontally */
+                            padding: 20px; /* Add some spacing around the content */
                         }
                         
+                        footer {
                         
+                            color: white;
+                            padding: 20px;
+                            margin-top: auto; /* Push the footer to the bottom */
+                        }
+
+                        input[type=text], select, textarea {
+                            width: 100%;
+                            padding: 12px;
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                            box-sizing: border-box;
+                            margin-top: 6px;
+                            margin-bottom: 16px;
+                            resize: vertical;
+                          }
+                          
+                          a {
+                            color: cyan;
+                            text-decoration: none; 
+                        }
                         
+                        * {
+                            box-sizing: border-box;
+                        }
+                        
+                        section {
+                            font-size: 18px; 
+
                         /****************/
                         /* /HEADER NEF/ */
                         /****************/
