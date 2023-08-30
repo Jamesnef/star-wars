@@ -44,19 +44,18 @@ def Character(id):
     
     return render_template("Character.html",Character=Character, Abilities=Abilities, The_side=The_side )
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/contact', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        firstname = request.form['firstname']
-        lastname = request.form['lastname']
-        subject = request.form['subject']
-        
+        firstname = request.form.get('firstname')
+        lastname = request.form.get('lastname')
+        subject = request.form.get('subject')
         conn = sqlite3.connect('starwar.db')
         cursor = conn.cursor()
         cursor.execute("INSERT INTO entries (firstname, lastname, subject) VALUES (?, ?, ?)", (firstname, lastname, subject))
         conn.commit()
         conn.close()
-    
+        return redirect ('/')
     return render_template('contact.html')
 
 
