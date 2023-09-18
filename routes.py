@@ -8,19 +8,20 @@ app = Flask(__name__)
 def hello():
     return render_template("home.html")
 
+
 @app.route("/contact")
 def contact():
     return render_template('contact.html')
 
-    
 
 @app.route("/about")
 def about():
     return render_template("about.html")
 
+
 @app.route("/all_character")
 def all_character():
-    conn=sqlite3.connect("starwar.db")
+    conn = sqlite3.connect("starwar.db")
     cur = conn.cursor()
     cur.execute("SELECT * FROM Character")
     results = cur.fetchall()
@@ -30,19 +31,20 @@ def all_character():
 
 @app.route("/Character/<int:id>")
 def Character(id):
-    conn=sqlite3.connect("starwar.db")
-    cur=conn.cursor()
-    cur.execute("SELECT * FROM Character WHERE id=?",(id,))
+    conn = sqlite3.connect("starwar.db")
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM Character WHERE id=?", (id,))
     Character = cur.fetchone()
     print(Character)
-    cur.execute("SELECT * FROM Abilities WHERE id=?",(id,))
+    cur.execute("SELECT * FROM Abilities WHERE id=?", (id,))
     Abilities = cur.fetchone()
     print(Abilities)
-    cur.execute("SELECT name FROM The_side WHERE id in( SELECT aid FROM Character_abilities WHERE cid=?)",(id,))
+    cur.execute("SELECT name FROM The_side WHERE id in( SELECT aid FROM Character_abilities WHERE cid=?)", (id,))
     The_side = cur.fetchall()
     print(The_side)
-    
-    return render_template("Character.html",Character=Character, Abilities=Abilities, The_side=The_side )
+
+    return render_template("Character.html", Character=Character, Abilities=Abilities, The_side=The_side)
+
 
 @app.route('/contact', methods=['GET', 'POST'])
 def index():
@@ -55,10 +57,8 @@ def index():
         cursor.execute("INSERT INTO entries (firstname, lastname, subject) VALUES (?, ?, ?)", (firstname, lastname, subject))
         conn.commit()
         conn.close()
-        return redirect ('/')
+        return redirect('/')
     return render_template('contact.html')
-
-
 
 
 if __name__ == "__main__":
