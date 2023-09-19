@@ -1,8 +1,23 @@
 {% extends"layout.html" %}
 {% block content %} 
-{% for item in results %}
-   <h2><a href="/Character/{{item[0]}}"> {{item[1]}} </a></h2>  
-   <p>{{item[2]}}</p> 
-{% endfor %}
+
+<div class="flex">
+      <div class="flex-element-image-column">
+      <img src="/static/images/backgroundstarwar.jpg" alt="img1">
+        </div>        
+
+        <div class="flex-element-Character-column">
+
+         {% for item in results %}
+         <h2><a href="/Character/{{item[0]}}"> {{item[1]}} </a></h2>  
+         <p>{{item[2]}}</p> 
+         {% endfor %} 
+        </div>
+
+        <div class="flex-element-image-column">
+         <img src="/static/images/starwarinnutshell.webp" alt="img1"> 
+         </div>  
+</div>
+
 
 {% endblock %}

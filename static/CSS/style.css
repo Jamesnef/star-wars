@@ -1,110 +1,138 @@
-/*********************/                 /*********************/
-/**GLOBAL **/                           /*********************/
-/*********************/                 /*********************/
+/*********************/
+/** GLOBAL **/
+/*********************/
 
-                        /************/
-                        div {
-                            text-align: center;
-                            }
-                            
-                          
+/* DIV STYLES */
+div {
+    text-align: center;
+}
 
-                        body{
-                            font-family:"Century Gothic";
-                           color: yellowgreen;
-                            background-image: url("/static/images/co341S.webp");
-                            background-size: cover;
-                            margin: 0;
-                            padding: 0;
-                            display: flex;
-                            flex-direction: column;
-                            min-height: 100vh;
+.div_Characterbox {
+    padding-left: 40%;
+    padding-right: 40%;
+    text-align: center;
+}
 
-                        }
+/* FLEXBOX STYLES */
+.flex {
+    display: flex;
+    flex-direction: row;
+}
 
-                        .content {
-                            max-width: 800px; 
-                            margin: 0 auto; /* Center the content horizontally */
-                            padding: 20px; /* Add some spacing around the content */
-                        }
-                        
-                        footer {
-                        
-                            color: white;
-                            padding: 20px;
-                            margin-top: auto; /* Push the footer to the bottom */
-                        }
+.flex-image {
+    width: 20%;
+    height: 70%;
+    border-style: solid;
+    border-color: #dbc1ac;
+    position: fixed;
+    display: flex;
+}
 
-                        input[type=text], select, textarea {
-                            width: 100%;
-                            padding: 12px;
-                            border: 1px solid #ccc;
-                            border-radius: 4px;
-                            box-sizing: border-box;
-                            margin-top: 6px;
-                            margin-bottom: 16px;
-                            resize: vertical;
-                          }
-                          
-                          a {
-                            color: cyan;
-                            text-decoration: none; 
-                        }
-                        
-                        * {
-                            box-sizing: border-box;
-                        }
-                        
-                        section {
-                            font-size: 18px; 
-                        }
-                        /****************/
-                        /* /HEADER NEF/ */
-                        /****************/
-                        
-                        header { 
-                         /*   background-color ;/* add mau gi cung duoc 'highlight my sebwite' */
-                         font-family:"Franklin Gothic Medium"   
-                        }
-                        
-                        header h1 { 
-                            color: peachpuff;
-                            padding:50px;
+.flex-element-image-column {
+    width: 30%;
+    padding-left: 12px;
+    padding-right: 12px;
+}
 
-                        text-align: center 
-                        }
+.flex-element-Character-column {
+    width: 40%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
 
-                        #navbar {
-                            text-align: center;
-                        }
-                        
-                        nav a {
-                            color: yellow;
-                            font-weight: bold;
-                            font-size: x-large;
-                            
-                        }
+/* BODY STYLES */
+body {
+    font-family: "Century Gothic";
+    color: yellowgreen;
+    background-image: url("/static/images/co341S.webp");
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-                        
-                        
-                        
-                        /****************/
-                        /* /IMAGES/ */
-                        /****************/
-                        
-                        img {
-                            max-width: 30%;
-                            max-height: 250%;
-                           }
-                           
-                        
-                        .whole {
-                            display: flex;
-                            justify-content: space-between;
-                                  
-                        }
+/* CONTENT STYLES */
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-                        .whole img {
-                            width: 100%; /* Set the width to 100% to make the image stretch horizontally. */
-                            
-                        }
+/* FOOTER STYLES */
+footer {
+    color: white;
+    padding: 20px;
+    margin-top: auto;
+}
+
+/* FORM ELEMENT STYLES */
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+/* LINK STYLES */
+a {
+    color: cyan;
+    text-decoration: none;
+}
+
+/* SECTION STYLES */
+* {
+    box-sizing: border-box;
+}
+
+section {
+    font-size: 18px;
+}
+
+/****************/
+/* HEADER STYLES */
+/****************/
+
+header {
+    font-family: "Franklin Gothic Medium";
+}
+
+header h1 {
+    color: peachpuff;
+    padding: 50px;
+    text-align: center;
+}
+
+#navbar {
+    text-align: center;
+}
+
+nav a {
+    color: yellow;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+/****************/
+/* IMAGE STYLES */
+/****************/
+
+img {
+    max-width: 80%;
+    max-height: 250%;
+}
+
+/* WHOLE SECTION STYLES */
+.whole {
+    display: flex;
+    justify-content: space-between;
+}
+
+.whole img {
+    width: 100%;
+}

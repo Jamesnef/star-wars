@@ -1,21 +1,28 @@
-{% extends"layout.html" %}
-{% block content %} 
+{% extends "layout.html" %}
+{% block content %}
+<div class="flex">
+    <div class="flex-element-image-column">
+        <img src="/static/images/{{ photo[0] }}" alt="img1">
+    </div>
 
+    <div class="flex-element-Character-column">
+        <p>
+            {{ long_description[0] }}
+        </p>
+        
+        {{ Abilities[1] }}
+        <br>
+        {{ Character[1] }}
 
-{{Abilities[1]}}
-<br>
-{{Character[1]}}
+        {% for item in The_side %}
+        <p>
+            {{ item[0] }}
+        </p>
+        {% endfor %}
+    </div>
 
-
-{%for item in The_side %}
-
-<p>
-
-    {{item[0]}} 
-
-</p>
-
-{% endfor %}
-{% endblock %} 
-
-
+    <div class="flex-element-image-column">
+        <img src="/static/images/{{ photo[0] }}" alt="img1">
+    </div>
+</div>
+{% endblock %}

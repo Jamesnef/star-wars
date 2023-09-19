@@ -37,8 +37,14 @@ def Character(id):
     cur.execute("SELECT name FROM The_side WHERE id IN (SELECT aid FROM Character_abilities WHERE cid=?)", (id,))  # Retrieves the names of the sides (e.g., light side or dark side) associated with the character.
     The_side = cur.fetchall()
     print(The_side)
+    cur.execute("SELECT photo FROM Character WHERE id=?", (id,))  # Execute SQLite query to retrieve photo from "Character" table in the database.
+    photo = cur.fetchone()
+    print(photo)
+    cur.execute("SELECT long_description FROM Character WHERE id=?", (id,))  # Execute SQLite query to retrieve photo from "Character" table in the database.
+    long_description = cur.fetchone()
+    print(long_description)
 
-    return render_template("Character.html", Character=Character, Abilities=Abilities, The_side=The_side)
+    return render_template("Character.html", Character=Character, Abilities=Abilities, The_side=The_side, photo=photo, long_description=long_description)
 
 @app.route('/contact', methods=['GET', 'POST'])
 def index():  # Function named index to handle the '/contact' route.
