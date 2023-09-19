@@ -103,3 +103,8 @@
                             justify-content: space-between;
                                   
                         }
+
+                        .whole img {
+                            width: 100%; /* Set the width to 100% to make the image stretch horizontally. */
+                            
+                        }
