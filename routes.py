@@ -56,5 +56,5 @@ def index():  # Function named index to handle the '/contact' route.
         return redirect('/')
     return render_template('contact.html')
 
-if __name__ == "__main__":
+if   __name__ == "__main__":
     app.run(debug=True)
