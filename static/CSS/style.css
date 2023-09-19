@@ -12,7 +12,7 @@
                         body{
                             font-family:"Century Gothic";
                            color: yellowgreen;
-                            background-image: url("/static/images/colourbackgroundstarwar.jpg");
+                            background-image: url("/static/images/co341S.webp");
                             background-size: cover;
                             margin: 0;
                             padding: 0;
@@ -57,7 +57,7 @@
                         
                         section {
                             font-size: 18px; 
-
+                        }
                         /****************/
                         /* /HEADER NEF/ */
                         /****************/
