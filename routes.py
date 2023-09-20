@@ -17,50 +17,66 @@ def about():
 
 @app.route("/all_character")
 def all_character():
+    # Connect to the SQLite database.
     conn = sqlite3.connect("starwar.db")
     cur = conn.cursor()
+    
+    # Execute an SQL query to retrieve all character data.
     cur.execute("SELECT * FROM Character")
     results = cur.fetchall()
+    
     print(results)
     return render_template("all_character.html", results=results)
+
 
 @app.route("/Character/<int:id>")
 def Character(id):
     conn = sqlite3.connect("starwar.db")
     cur = conn.cursor()
-    cur.execute("SELECT * FROM Character WHERE id=?", (id,))  # Execute SQLite query to retrieve data from "Character" table in the database.
+    
+    # Check if the character with the given ID exists
+    cur.execute("SELECT * FROM Character WHERE id=?", (id,))
     Character = cur.fetchone()
-    print(Character)
-    cur.execute("SELECT * FROM Abilities WHERE id=?", (id,))  # Execute SQLite query to retrieve data from "Abilities" table in the database.
+    
+    if Character is None:
+        return render_template("404.html"), 404
+
+    # If the character exists, fetch other related data
+    cur.execute("SELECT * FROM Abilities WHERE id=?", (id,))
     Abilities = cur.fetchone()
     print(Abilities)
-    cur.execute("SELECT name FROM The_side WHERE id IN (SELECT aid FROM Character_abilities WHERE cid=?)", (id,))  # Retrieves the names of the sides (e.g., light side or dark side) associated with the character.
+    # Executing the query from SQLITE
+    cur.execute("SELECT name FROM The_side WHERE id IN (SELECT aid FROM Character_abilities WHERE cid=?)", (id,))
     The_side = cur.fetchall()
     print(The_side)
-    cur.execute("SELECT photo FROM Character WHERE id=?", (id,))  # Execute SQLite query to retrieve photo from "Character" table in the database.
+    # Executing the query from SQLITE
+    cur.execute("SELECT photo FROM Character WHERE id=?", (id,))
     photo = cur.fetchone()
     print(photo)
-    cur.execute("SELECT long_description FROM Character WHERE id=?", (id,))  # Execute SQLite query to retrieve photo from "Character" table in the database.
+    # Executing the query from SQLITE
+    cur.execute("SELECT long_description FROM Character WHERE id=?", (id,))
     long_description = cur.fetchone()
     print(long_description)
 
     return render_template("Character.html", Character=Character, Abilities=Abilities, The_side=The_side, photo=photo, long_description=long_description)
 
+
 @app.route('/contact', methods=['GET', 'POST'])
-def index():  # Function named index to handle the '/contact' route.
-    if request.method == 'POST':  # POST is used when submitting data from the server.
-        firstname = request.form.get('firstname')
-        lastname = request.form.get('lastname')
-        subject = request.form.get('subject')
-        # First/last/subject + name = id where user input data submitted from POST.
-        conn = sqlite3.connect('starwar.db')  # Route connects to SQLite (starwar.db).
+def index():  
+    if request.method == 'POST':  
+        name = request.form.get('firstname')  # Variable "name"
+        contact = request.form.get('lastname')  # Variable "contact"
+        subject = request.form.get('subject')  # Variable "subject"
+        # Connect to the SQLite database
+        conn = sqlite3.connect('starwar.db')  
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO entries (firstname, lastname, subject) VALUES (?, ?, ?)", (firstname, lastname, subject))
-        # Execute an SQLite query into the table firstname, lastname, and subject.
+        # Insert the user input into the database from the website
+        cursor.execute("INSERT INTO entries (name, contact, subject) VALUES (?, ?, ?)", (name, contact, subject))  
+        # Commit the changes and close the database connection
         conn.commit()
         conn.close()
         return redirect('/')
     return render_template('contact.html')
 
-if   __name__ == "__main__":
+if __name__ == "__main__":
     app.run(debug=True)
